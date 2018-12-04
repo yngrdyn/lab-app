@@ -1,7 +1,7 @@
 .mat-drawer-container {
     height:100%;
     .mat-drawer {
-        width: 12vw;
+        width: 20%;
         a {
             border-bottom: 1px solid rgba(0, 0, 0, 0.12);
             display: flex;
@@ -14,19 +14,32 @@
                 color: #757575;
             }
             &.active {
+                border-right: 6px solid #FFC107;
                 span {
                     font-weight: bold;
-                    &:after {
-                        content: "\25b6";
-                        font-size: 0.5rem;
-                        margin-left: 5px;
-                        vertical-align: middle;
-                    }
                 }
             }
         }
     }
     .mat-drawer-content {
-        padding: 1vw;
+        padding: 1vw 3vw;
     }
+}
+
+@media (max-width: 768px) {
+  
+    .mat-drawer-container {
+        .mat-drawer {
+            width: 30%;
+            a {
+                span {
+                    font-size: 0.75rem; 
+                }
+            }
+        }
+        .mat-drawer-content {
+            padding: 1vw 2vw;
+        }
+    }
+    
 }

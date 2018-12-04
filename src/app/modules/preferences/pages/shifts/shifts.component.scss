@@ -1,0 +1,58 @@
+h1 {
+    font-size:1.5rem;
+}
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 1vw;
+    .selection {
+        display: flex;
+        min-width: 50%;
+        align-items: center;
+    }
+    .description {
+        padding-left: 2vw;
+        p {
+            color: #757575;
+        }
+    }
+}
+.mat-form-field {
+    width:100%;
+}
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 4vw;
+}
+
+@media (max-width: 768px) {
+  
+    h1 {
+        font-size:1rem;
+    }
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 1vw;
+        .selection {
+            display: flex;
+            min-width: 50%;
+            align-items: center;
+        }
+        .description {
+            p {
+                color: #757575;
+                margin: 0;
+                font-size:0.8rem;
+            }
+        }
+    }
+    .mat-form-field {
+        width:70%;
+        margin: 0 auto;
+    }
+
+}

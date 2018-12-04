@@ -1,3 +1,35 @@
-<p>
-    shifts works!
-</p>
+<h1>
+    Garantías y turnos
+</h1>
+<div class="wrapper">
+    <div class="selection">
+        <mat-form-field>
+            <mat-select [(ngModel)]="value" placeholder="Primera preferencia">
+                <mat-option *ngFor="let num of [1, 2, 3, 4]" [value]="num">{{ num }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="description">
+        <p>
+            En caso de cambio de su preferencia de vuelo, éste se aplicará a partir del mes (incluido): febrero
+        </p>
+    </div>
+</div>
+<div class="wrapper">
+    <div class="selection">
+        <mat-form-field>
+            <mat-select [(ngModel)]="value" placeholder="Segunda preferencia">
+                <mat-option *ngFor="let num of [1, 2, 3, 4]" [value]="num">{{ num }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="description">
+        <p>
+            En caso de cambio de su preferencia de vuelo, éste se aplicará a partir del mes (incluido): febrero
+        </p>
+    </div>
+</div>
+<div class="actions">
+    <button class="mat-raised-button mat-primary">Guardar</button>
+</div>
+
