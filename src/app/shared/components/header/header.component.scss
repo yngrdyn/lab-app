@@ -1,0 +1,30 @@
+.mat-toolbar {
+    background: #757575;
+}
+
+.fill-remaining-space {
+    flex: 1 1 auto;
+    cursor: default;
+    img {
+        width:5rem;
+        cursor: pointer;
+        outline: none;
+    }
+}
+
+.align-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    .mat-icon-button {
+        cursor: pointer;
+        background: #FFC107;
+        display: flex;
+        justify-content: center;
+        .mat-icon {
+            display: flex;
+            align-self: center;
+            color: white;
+        }
+    }
+}

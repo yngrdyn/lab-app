@@ -1,0 +1,18 @@
+.main {
+    display: flex;
+    flex-grow: 1;
+}
+
+app-footer {
+    display: flex;
+    background: #E0E0E0;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+  
+    app-footer {
+        display: none;
+    }
+    
+}

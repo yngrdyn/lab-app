@@ -1,0 +1,15 @@
+<mat-toolbar>
+    <span class="fill-remaining-space">
+      <img src="https://crewservices.vueling.com/Vueling.CREW.SSO.WebUI/Content/img/crewLogo.png" [routerLink]="['']">
+    </span>
+    <span class="fill-remaining-space align-right">
+        <button mat-icon-button [matMenuTriggerFor]="menu" class="mat-primary">
+          <mat-icon>person</mat-icon> <!-- Note Ligature -->
+        </button>
+        <mat-menu #menu="matMenu" [overlapTrigger]="false">
+          <button mat-menu-item [routerLink]="['/preferences']"> <!-- Note Routing -->
+            <span>Preferencias</span>
+          </button>
+        </mat-menu>
+      </span>
+</mat-toolbar>

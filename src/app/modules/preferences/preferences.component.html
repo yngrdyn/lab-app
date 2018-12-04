@@ -1,0 +1,13 @@
+<mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened>
+        <a routerLink='/preferences' routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <span>Garantías y turnos</span>
+        </a>
+        <a routerLink='/preferences/second-residency' routerLinkActive="active">
+            <span>Segunda Residencia</span>
+        </a>
+    </mat-drawer>
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>

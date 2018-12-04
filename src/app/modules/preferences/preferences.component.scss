@@ -1,0 +1,32 @@
+.mat-drawer-container {
+    height:100%;
+    .mat-drawer {
+        width: 12vw;
+        a {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+            display: flex;
+            text-decoration: none;
+            justify-content: center;
+            span {
+                display: block;
+                width: 100%;
+                padding: 1rem;
+                color: #757575;
+            }
+            &.active {
+                span {
+                    font-weight: bold;
+                    &:after {
+                        content: "\25b6";
+                        font-size: 0.5rem;
+                        margin-left: 5px;
+                        vertical-align: middle;
+                    }
+                }
+            }
+        }
+    }
+    .mat-drawer-content {
+        padding: 1vw;
+    }
+}
