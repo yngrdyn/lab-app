@@ -1,35 +1,39 @@
 <h1>
     Garantías y turnos
 </h1>
-<div class="wrapper">
-    <div class="selection">
-        <mat-form-field>
-            <mat-select [(ngModel)]="value" placeholder="Primera preferencia">
-                <mat-option *ngFor="let num of [1, 2, 3, 4]" [value]="num">{{ num }}</mat-option>
-            </mat-select>
-        </mat-form-field>
+<form [formGroup]="form">
+    <div class="wrapper">
+        <div class="selection">
+            <mat-form-field>
+                <mat-select placeholder="Primera preferencia" formControlName="firstPreference">
+                    <mat-option *ngFor="let num of [1, 2, 3, 4]" [value]="num">{{ num }}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('firstPreference').hasError('required')">Debe seleccionar una preferencia</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="description">
+            <p>
+                En caso de cambio de su preferencia de vuelo, éste se aplicará a partir del mes (incluido): febrero
+            </p>
+        </div>
     </div>
-    <div class="description">
-        <p>
-            En caso de cambio de su preferencia de vuelo, éste se aplicará a partir del mes (incluido): febrero
-        </p>
+    <div class="wrapper">
+        <div class="selection">
+            <mat-form-field>
+                <mat-select placeholder="Segunda preferencia"  formControlName="secondPreference">
+                    <mat-option *ngFor="let num of [5, 6, 7, 8]" [value]="num">{{ num }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="description">
+            <p>
+                En caso de cambio de su preferencia de vuelo, éste se aplicará a partir del mes (incluido): febrero
+            </p>
+        </div>
     </div>
-</div>
-<div class="wrapper">
-    <div class="selection">
-        <mat-form-field>
-            <mat-select [(ngModel)]="value" placeholder="Segunda preferencia">
-                <mat-option *ngFor="let num of [1, 2, 3, 4]" [value]="num">{{ num }}</mat-option>
-            </mat-select>
-        </mat-form-field>
-    </div>
-    <div class="description">
-        <p>
-            En caso de cambio de su preferencia de vuelo, éste se aplicará a partir del mes (incluido): febrero
-        </p>
-    </div>
-</div>
+</form>
 <div class="actions">
-    <button class="mat-raised-button mat-primary">Guardar</button>
-</div>
+    <button class="mat-raised-button" (click)="resetForm()">Resetear</button>
+    <button class="mat-raised-button mat-primary" (click)="submit()" [disabled]="!form.valid">Guardar</button>
+</div>   
 

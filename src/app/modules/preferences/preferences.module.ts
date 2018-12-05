@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 
 import { 
   MatSidenavModule,
   MatSelectModule,
 } from '@angular/material';
-
 
 import { PreferencesRoutingModule } from './preferences-routing.module';
 
@@ -25,6 +24,7 @@ import { SecondResidencyComponent } from './pages/second-residency/second-reside
     MatSidenavModule,
     PreferencesRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     MatSelectModule,
   ],
   exports: [
