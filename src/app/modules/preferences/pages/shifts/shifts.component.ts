@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { FormBuilder, FormGroup, Validators, NgForm  } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormGroupDirective  } from '@angular/forms';
 import { PreferencesService } from '../../../../core/services/preferences.service';
 
 import {Observable, timer} from 'rxjs';
@@ -24,6 +24,8 @@ interface CrewUserModel {
 })
 export class ShiftsComponent implements OnInit {
 
+  @ViewChild(FormGroupDirective) formGroupDirective: FormGroupDirective;
+
   preferencesList: UserModel[];
   form: FormGroup;
   preferences: Observable<UserModel[]>;
@@ -33,15 +35,13 @@ export class ShiftsComponent implements OnInit {
     private formBuilder: FormBuilder,
     private preferencesService: PreferencesService,
   ) {
-
+    this.form = this.formBuilder.group({
+      firstPreference: [null, [ Validators.required]],
+      secondPreference: null,
+    });
   }
 
   ngOnInit() {
-
-    this.form = this.formBuilder.group({
-      firstPreference: ['', [ Validators.required]],
-      secondPreference: '',
-    });
 
     this.preferencesService.list().subscribe(
       res=>this.preferencesList = res
@@ -51,6 +51,11 @@ export class ShiftsComponent implements OnInit {
       tap(preferences => this.form.patchValue(preferences))
     );
 
+  }
+
+  resetForm() {
+    this.form.reset();
+    this.formGroupDirective.resetForm();
   }
 
   submit() {
@@ -68,6 +73,8 @@ export class ShiftsComponent implements OnInit {
       });
      }); 
 
+    this.form.reset();
+    this.formGroupDirective.resetForm();
   }
 
 }

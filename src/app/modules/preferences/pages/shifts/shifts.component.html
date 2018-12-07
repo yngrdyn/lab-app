@@ -1,7 +1,7 @@
 <h1>
     Garantías y turnos
 </h1>
-<form [formGroup]="form" *ngIf="preferences | async; else loading">
+<form [formGroup]="form" *ngIf="preferences | async; else loading" #formGroupDirective>
     <div class="wrapper">
         <div class="selection">
             <mat-form-field>
@@ -32,6 +32,7 @@
         </div>
     </div>
     <div class="actions">
+        <button class="mat-raised-button" (click)="resetForm()">Resetear</button>
         <button class="mat-raised-button mat-primary" (click)="submit()" [disabled]="!form.valid">Guardar</button>
     </div> 
 </form>  
@@ -43,4 +44,6 @@
 <ng-template #loading>
     Loading Preferences...
 </ng-template>
+
+
 

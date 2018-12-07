@@ -33,8 +33,6 @@ export class PreferencesService {
         'Content-Type':  'application/json',
       })
     };
-
-    console.log('Calling'); 
     return this.http.put<any>(this.url + 'crewPreferences/1', preferences, httpOptions)
     .pipe(
       catchError(error => this.handleError(error))
