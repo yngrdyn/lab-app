@@ -32,8 +32,7 @@
         </div>
     </div>
     <div class="actions">
-        <button class="mat-raised-button" (click)="resetForm()">Resetear</button>
-        <button class="mat-raised-button mat-primary" (click)="submit()" [disabled]="!form.valid">Guardar</button>
+        <button type="submit" class="mat-raised-button mat-primary" (click)="submit()" [disabled]="!form.valid">Guardar</button>
     </div> 
 </form>  
 

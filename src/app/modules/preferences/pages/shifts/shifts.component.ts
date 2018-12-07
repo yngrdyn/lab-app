@@ -53,11 +53,6 @@ export class ShiftsComponent implements OnInit {
 
   }
 
-  resetForm() {
-    this.form.reset();
-    this.formGroupDirective.resetForm();
-  }
-
   submit() {
     let preference : CrewUserModel =  {
       firstPreference: this.form.controls['firstPreference'].value,
@@ -72,9 +67,6 @@ export class ShiftsComponent implements OnInit {
         this.successMessage = null;
       });
      }); 
-
-    this.form.reset();
-    this.formGroupDirective.resetForm();
   }
 
 }
