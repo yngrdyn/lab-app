@@ -24,10 +24,15 @@ h1 {
 .actions {
     display: flex;
     justify-content: flex-end;
-    padding: 4vw;
+    padding: 4vw 4vw 0;
     button {
         margin-left: 10px;
     }
+}
+
+.serverMessage {
+    margin-top: -2rem;
+    color: #c1c1c1;
 }
 
 @media (max-width: 768px) {

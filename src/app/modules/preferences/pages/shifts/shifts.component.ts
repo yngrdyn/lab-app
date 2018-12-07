@@ -3,13 +3,19 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, NgForm  } from '@angular/forms';
 import { PreferencesService } from '../../../../core/services/preferences.service';
 
-import {Observable} from 'rxjs';
+import {Observable, timer} from 'rxjs';
 import {tap} from 'rxjs/Operators';
 
 interface UserModel {
-  firstPreference: string;
-  secondPreference: string;
+  id: number;
+  value: string;
 }
+
+interface CrewUserModel {
+  firstPreference: number;
+  secondPreference: number;
+}
+
 
 @Component({
   selector: 'app-shifts',
@@ -18,10 +24,10 @@ interface UserModel {
 })
 export class ShiftsComponent implements OnInit {
 
-  @ViewChild('formDirective') private formDirective: NgForm;
-
+  preferencesList: UserModel[];
   form: FormGroup;
-  preferences: Observable<UserModel>;
+  preferences: Observable<UserModel[]>;
+  successMessage : any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -37,18 +43,31 @@ export class ShiftsComponent implements OnInit {
       secondPreference: '',
     });
 
-    this.preferences = this.preferencesService.list().pipe(
-      tap(user => this.form.patchValue(user))
-    );    
+    this.preferencesService.list().subscribe(
+      res=>this.preferencesList = res
+    );
 
-  }
+    this.preferences = this.preferencesService.getCrewPreferences().pipe(
+      tap(preferences => this.form.patchValue(preferences))
+    );
 
-  resetForm() {
-    this.formDirective.resetForm();
   }
 
   submit() {
-    console.log(this.form);
+    let preference : CrewUserModel =  {
+      firstPreference: this.form.controls['firstPreference'].value,
+      secondPreference: this.form.controls['secondPreference'].value
+    };
+
+    console.log(preference);
+
+    this.preferencesService.setCrewPreference(preference).subscribe((resp) => { 
+      this.successMessage = resp.status == 'success' ? "Las preferencias han sido actualizadas correctamente" : "Error";
+      timer(3000).subscribe(() => {
+        this.successMessage = null;
+      });
+     }); 
+
   }
 
 }
