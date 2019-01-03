@@ -1,14 +1,14 @@
 import { AppPage } from './app.po';
 
-describe('workspace-project App', () => {
+describe('lab-app', () => {
   let page: AppPage;
 
   beforeEach(() => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should locate the nav bar', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to lab-app!');
+    expect(page.getNavBar()).toBeDefined();
   });
 });
