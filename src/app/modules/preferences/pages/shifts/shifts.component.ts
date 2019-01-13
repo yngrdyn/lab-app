@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators, FormGroupDirective  } from '@angula
 import { PreferencesService } from '../../../../core/services/preferences.service';
 
 import {Observable, timer} from 'rxjs';
-import {tap} from 'rxjs/Operators';
+import {tap} from 'rxjs/operators';
 
 interface UserModel {
   id: number;

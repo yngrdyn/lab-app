@@ -1,3 +1,32 @@
-<p>
-  home works!
-</p>
+<div class="home-title">
+  <h1> Messages </h1>
+  <button mat-raised-button (click)="openDialog()">Dialog</button>
+</div>
+
+<mat-table #Table [dataSource]="messageList" class="mat-elevation-z8">  
+  <ng-container matColumnDef="crewLogin">  
+      <mat-header-cell *matHeaderCellDef> Crew </mat-header-cell>  
+      <mat-cell *matCellDef="let post"> {{post.crewLogin}} </mat-cell>  
+  </ng-container>  
+  <ng-container matColumnDef="phoneNumber">  
+      <mat-header-cell *matHeaderCellDef> Teléfono </mat-header-cell>  
+      <mat-cell *matCellDef="let post"> {{post.phoneNumber}} </mat-cell>  
+  </ng-container>  
+  <ng-container matColumnDef="base">  
+      <mat-header-cell *matHeaderCellDef> Base </mat-header-cell>  
+      <mat-cell *matCellDef="let post"> {{post.base}} </mat-cell>  
+  </ng-container>  
+  <ng-container matColumnDef="sentDate">  
+      <mat-header-cell *matHeaderCellDef> Fecha de envío </mat-header-cell>  
+      <mat-cell *matCellDef="let post"> {{post.sentDate | date:'short' }} </mat-cell>  
+  </ng-container>
+  <ng-container matColumnDef="status">  
+      <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>  
+      <mat-cell *matCellDef="let post">
+        <app-status [status]="post.status" (resend)="resendMessage(post)"></app-status>
+      </mat-cell>  
+  </ng-container>   
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>  
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>  
+</mat-table> 

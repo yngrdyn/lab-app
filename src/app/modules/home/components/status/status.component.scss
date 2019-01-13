@@ -1,0 +1,20 @@
+.status {
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    &.success {
+        background-color: #00c853;
+    }
+    &.error {
+        background-color: #ff3d00;
+    }
+    &.pending {
+        background-color: #ffd600;
+    }
+}
+
+div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

@@ -1,0 +1,14 @@
+<div [ngSwitch]="status.toLowerCase()">
+  <div *ngSwitchCase="'success'">
+    <div class="status success"></div>
+  </div>
+  <div *ngSwitchCase="'error'">
+      <div class="status error"></div>
+      <!--button mat-icon-button matTooltip="Reenviar mensaje" (click)="resendClicked()">
+          <mat-icon>replay</mat-icon>
+      </button-->
+  </div>
+  <div *ngSwitchDefault>
+      <div class="status pending"></div>
+  </div>
+</div>
