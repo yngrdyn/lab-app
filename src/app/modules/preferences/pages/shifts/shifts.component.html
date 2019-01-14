@@ -6,6 +6,7 @@
         <div class="selection">
             <mat-form-field>
                 <mat-select placeholder="Primera preferencia" formControlName="firstPreference">
+                    <mat-option>Primera Preferencia</mat-option>
                     <mat-option *ngFor="let preference of preferencesList" [value]="preference.id">{{ preference.value }}</mat-option>
                 </mat-select>
                 <mat-error *ngIf="form.get('firstPreference').hasError('required')">Debe seleccionar una preferencia</mat-error>
@@ -21,6 +22,7 @@
         <div class="selection">
             <mat-form-field>
                 <mat-select placeholder="Segunda preferencia"  formControlName="secondPreference">
+                    <mat-option>Segunda Preferencia</mat-option>
                     <mat-option *ngFor="let preference of preferencesList" [value]="preference.id">{{ preference.value }}</mat-option>
                 </mat-select>
             </mat-form-field>
