@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './pages/home/home.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';  
 
 import { 
   MatButtonModule,
@@ -8,14 +9,15 @@ import {
   MatDialogModule,
   MatIconModule,
   MatTableModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatFormFieldModule,
+  MatInputModule
 } from '@angular/material';
-
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';  
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';  
 import { MessagesService } from '../../core/services/message.service'; 
 
+import { HomeComponent } from './pages/home/home.component';
 import { DialogBodyComponent } from './components/dialog-body/dialog-body.component';
 import { StatusComponent } from './components/status/status.component';
 
@@ -28,13 +30,17 @@ import { StatusComponent } from './components/status/status.component';
   imports: [
     BrowserAnimationsModule,
     CommonModule,
+    FormsModule,
     HttpClientModule,
     MatButtonModule,
     MatCardModule,
     MatDialogModule,
     MatIconModule,
+    MatInputModule,
+    MatFormFieldModule,
     MatTableModule,
-    MatTooltipModule
+    MatTooltipModule,
+    ReactiveFormsModule
   ],
   exports: [
     HomeComponent

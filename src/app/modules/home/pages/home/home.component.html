@@ -1,6 +1,11 @@
 <div class="home-title">
-  <h1>Messages</h1>
-  <button mat-raised-button (click)="openDialog()">Dialog</button>
+    <h1> Messages </h1>
+    <button mat-raised-button (click)="openDialog()">Dialog</button>
+    <form>
+        <mat-form-field class="input">
+        <input matInput placeholder="Example" [formControl]="emailFormControl">
+        </mat-form-field>
+    </form>
 </div>
 
 <mat-table #Table [dataSource]="messageList" class="mat-elevation-z8">  
